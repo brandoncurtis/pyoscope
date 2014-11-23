@@ -8,9 +8,13 @@ PyOscope extends the functionality of PyUSBtmc with an abstract Scope class with
 
 The PyUSBtmc project is in no way affiliated with Rigol Technologies Inc.
 
-Presently PyOscope is able to interact with USBtmc compliant instruments using the linux kernel's usbtmc character device driver.  The first USBtmc device is automatically mapped by the linux kernel to /dev/usbtmc0 which may be interacted with in the usual unix way.  For example:
+Presently PyOscope is able to interact with USBtmc compliant instruments using the linux kernel's usbtmc character device driver.  
+The first USBtmc device is automatically mapped by the linux kernel to /dev/usbtmc0 which may be interacted with in the usual unix way.
+
+For example:
 echo "*IDN?" > /dev/usbtmc0; cat /dev/usbtmc0
 will send the standard IEEE command for the device to identify itself.
+
 See below for how to set the device permissions properly in Linux
 
 This library also contains a driver to interact with National Instruments ENET/GPIB modules over ethernet.

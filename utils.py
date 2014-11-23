@@ -21,7 +21,7 @@ def makeFileName():
     return timestring
 
 def makeDataFilePath(root="/var/local/data", subdir="scope"):
-    datestring = time.strftime("%y%m%d")
+    datestring = time.strftime("%Y-%m-%d") # ISO Standard 8601 
 
     fileroot = os.path.join(root, datestring, subdir)
     filename = makeFileName()

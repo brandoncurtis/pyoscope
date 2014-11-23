@@ -23,14 +23,11 @@ import wx
 import sys
 import os
 import numpy as np
-try:
-    import fel_pylib as utils
-except:
-    import utils
+import utils
 from wxPlotPanel import PlotPanel
 
 DELAY = 100 #ms
-DATA_ROOT = "/var/local/data"
+DATA_ROOT = "/home/brandon/data/Repos/Oscilloscopes/pyoscope/data" #change this!
 COLOR1 = (1,1,0)
 COLOR2 = (0,1,1)
 
@@ -171,7 +168,7 @@ class ScopePlotTestFrame(wx.Frame):
             self.buttons["Run"].SetLabel("Stop")
 
     def on_save(self, e):
-        filepath = utils.makeDataFilePath(DATA_ROOT, 'oscope')
+        filepath = utils.makeDataFilePath(DATA_ROOT, '') # 'oscope' argument for further subfolder
         print "Saving: " + filepath
         self.save(filepath)
     
@@ -197,7 +194,7 @@ if __name__ == '__main__':
         device = 'rigol'
     if device == 'rigol':
         from rigol import RigolScope
-        scope = RigolScope('/dev/usbtmc-rigol')
+        scope = RigolScope('/dev/usbtmc0')
     elif device == 'waverunner':
         from waverunner import Waverunner
         scope = Waverunner('127.0.0.1')
